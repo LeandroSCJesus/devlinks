@@ -229,6 +229,7 @@ footer{
      font-size: 14px;
 }
 
+/* :) at rules */
 /* >-> media queries */
 @media (min-width: 700px) {
      :root {
@@ -239,3 +240,4 @@ footer{
           --bg-url: url(.assets/bg-desktop-light.jpg);
      }
 }
+
