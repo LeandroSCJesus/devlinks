@@ -1,0 +1,228 @@
+/*.- Dois exemplos de codificação no css*/
+
+/*background-image: url(./assets/bg-mobile.jpg);
+background-repeat: no-repeat;
+background-position: top center;
+background-size: cover;*/
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     
+     /* border: 1px solid gray; */
+     /*.- Com essa configuração no inicio do projeto os problemas com margens e espaçamenos internos estão resolvidos  */
+}
+
+:root{
+     --text-color: white;
+     --bg-url: url(./assets/bg-mobile.jpg);
+     --stroke-color: rgba(255, 255, 255, 0.5);
+     --surface-color: rgba(255, 255, 255, 0.05);
+     --surface-color-hover: rgba(255, 255, 255, 0.02);
+     --highlight-color: rgba(255, 255, 255, 0.1);
+     --switch-bg-url: url(./assets/moon-stars.svg);
+
+}
+
+.light{
+     --text-color: black;
+     --bg-url: url(./assets/bg-mobile-light.jpg);
+     --stroke-color: rgba(0, 0, 0, 0.5);
+     --surface-color: rgba(0, 0, 0, 0.05);
+     --surface-color-hover: rgba(0, 0, 0,0.02);
+     --highlight-color: rgba(0, 0, 0,0.1);
+     --switch-bg-url: url(./assets/sun.svg);
+          
+}
+
+body {
+     /* >=>propriedade shothand*/
+     /*>= Background: color image repeat position/size */
+     
+     background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+     font-family: 'Inter', sans-serif;
+     color: var(--text-color);
+}
+
+#container {
+     width: 360px;
+     margin: 56px auto 0px;
+     padding: 0 24px;
+
+     /* border: 1px solid gray; */
+
+     /* .-height: 712px; Não colocamos a largura porque o tem que ser fluída junto com o conteúdo*/
+
+     /* >-> margin: auto; Foi substituído pelo margin com todas as configurações*/
+}
+
+/*;) Profile  */
+#profile {
+
+     /* .- Alinhamento de Textos */
+     text-align: center;
+     padding: 24px;
+
+     /*;) Porém, em display inline, ele aceita que o pai tenha um text-aling  e ele seja center, ou seja, todos os elementos vão aceitar que o pai defina se fica centralizado, ou a esquerda ou a direita  */
+}
+
+#profile img {
+     width: 112px;
+     
+     /* border: 1px solid gray; */
+
+     /*.- margin: auto; Em elementos inline não conseguimos aplicar o margin auto */
+}
+
+#profile p{
+     font-weight: 500;
+     line-height: 24px;
+     margin-top: 8px;
+     
+     /* border: 1px solid gray; */
+}
+
+/*;) Switch  */
+#switch {
+     position: relative;
+     width: 64px;
+
+     /* border: 1px solid gray; */
+
+     /* .- Alinhamento do Display Block */
+     margin: 4px auto;
+
+}
+
+#switch button{
+     width: 32px;
+     height: 32px;
+     
+     background: white var(--switch-bg-url) no-repeat center;
+     
+     border: 0;
+     border-radius: 50%;
+
+     /*.- Alinhamento do Position */
+     position: absolute;
+     top: 50%;
+     left: 0;
+     z-index: 1;
+     transform: translateY(-50%);
+     
+}
+
+/* ;)Light */
+
+.light #switch button{
+     right: 0;
+     left: initial;
+
+}
+
+#switch span{
+     display: block;
+
+
+     width: 64px;
+     height: 24px;
+
+     background: var(--surface-color);
+
+     border: 1px solid var(--stroke-color);
+     border-radius: 9999px;
+
+     backdrop-filter: blur(4px);
+     -webkit-backdrop-filter: blur(4px);
+     
+}
+
+/*;) >=> Links */
+ul {
+     list-style: none;
+     
+     display: flex;
+     flex-direction: column;
+     gap: 16px;
+
+     padding: 24px 0;
+}
+
+ul li a{
+     /* .- Alinhamento do Display Flex */
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     
+     padding: 16px 24px;
+
+     background: rgba(255, 255, 255, 0.1);
+     border: 1px solid var(--stroke-color);
+     border-radius: 8px;
+     
+     backdrop-filter: blur(4px); /* >-> Usado para colocar um borrão no elemento */
+     -webkit-backdrop-filter: blur(4px); /* >-> Webkit é usado para ser visualizados em outros navegadores  */
+     
+
+     text-decoration: none;
+     font-weight: 500;
+
+     transition: background .5s;
+     
+     /* :) O site canise.com mostras quais elementos css podem ser usado em qual versão de navegador e se precisa ou não usar algum prefixo */
+}
+
+/*;) Pseudo-selector */
+ul li a:hover{
+     background: var(--surface-color-hover);
+     border: 1.5px solid var(--text-color);
+}
+
+/*;) Social Links */
+#social-links {
+     display: flex;
+     justify-content: center;
+     /* gap: 16px;*/ /*.-ao usar o display flex e seus elementos não teve mais a necessidade de usar o gap, pois estava somando com o padding do #social-links aumentando o espaçamento entre eles. */
+     
+     padding: 24px 0;
+     
+     font-size: 24px;
+     
+}
+
+#social-links a{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+
+
+     padding: 16px;
+     
+     border-radius: 50%;
+
+     /* >-> Usei a lógica que colocando o valor altura e largura para a tag 'a' eu conseguiria centralizar os icones das redes sociais, mas eles ficaram fixo na parte superior a esqueda da caixa da tag 'a', então pensei em usar o padding para preencher os espaços e centralizar os icones ao meio da caixa */
+     /* width: 40px;
+     height: 40px;
+
+     padding: 8px; */
+   
+}
+
+#social-links a:hover{
+     background: var(--highlight-color);
+
+
+     transition: background .5s;
+}
+
+/*;) Footer  */
+footer{
+     padding: 24px 0;
+     text-align: center;
+
+     font-size: 14px;
+
+}
